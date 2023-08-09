@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="input_types">
+        <item>Percentage</item>
+        <item>Ratio</item>
+        <item>Amount</item>
+    </string-array>
+</resources>

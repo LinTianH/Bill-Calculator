@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Input fields -->
+        <EditText
+            android:id="@+id/etTotalBill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Enter Total Bill Amount: "
+            android:layout_margin="16dp" />
+
+        <EditText
+            android:id="@+id/etNumberOfPeople"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Enter Number of People: "
+            android:layout_margin="16dp" />
+
+        <!-- Optional that Store details of students that often hang out together -->
+        <EditText
+            android:id="@+id/etHangoutDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Enter Hangout Details (Optional): "
+            android:layout_margin="16dp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Radio buttons for break-down options -->
+        <RadioGroup
+            android:id="@+id/radioGroupOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioEqualBreakdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Equal Break-down"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioCustomBreakdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Break-down"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioCombinationBreakdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Combination Break-down"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <!-- Custom break-down input fields (HIDDEN by default) -->
+        <LinearLayout
+            android:id="@+id/layoutCustomBreakdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_margin="16dp">
+
+            <LinearLayout
+                android:id="@+id/layoutCustomAmounts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <!-- This LinearLayout will hold the EditText fields for entering ratios -->
+            <LinearLayout
+                android:id="@+id/layoutRatioInputs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinnerInputType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/input_types"
+            android:prompt="@string/select_input_type"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:textSize="18sp" />
+
+        <!-- Calculate and Show Results button -->
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate and Show Results"
+            android:onClick="calculateBillBreakdown"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:textSize="18sp" />
+
+
+        <!-- Horizontal layout for Save and Share Results buttons (HIDDEN by default) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:visibility="gone"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:visibility="gone"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <!-- Display Results -->
+        <TextView
+            android:id="@+id/tvBreakdownResults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Horizontal layout for Clear, History, and Exit buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:textSize="18sp"
+                android:onClick="clearInputs" />
+
+            <Button
+                android:id="@+id/btnHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:textSize="18sp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp" />
+
+            <Button
+                android:id="@+id/btnExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exit"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
